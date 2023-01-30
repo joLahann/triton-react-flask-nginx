@@ -11,3 +11,19 @@ services:
     image: wppipe-client
     ports:
       - "3000:80"
+  triton_server:
+    build:
+      context: .
+      dockerfile: Dockerfile.triton
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command:
+          - tritonserver
+          - --model-repository=/models
+          - --strict-model-config=false
+          - --log-verbose=1
