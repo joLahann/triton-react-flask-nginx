@@ -1,9 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# flask
+
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+venv
 
 # testing
 /coverage
@@ -17,6 +20,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+__pycache__
 
 npm-debug.log*
 yarn-debug.log*
